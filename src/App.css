@@ -1,0 +1,247 @@
+/* --- ייבוא גופן מודרני (Assistant) --- */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap');
+
+/* --- איפוס כללי ורקע שחור עמוק וחלק --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Assistant', sans-serif;
+  background: #020205;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(219, 39, 119, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.08) 0%, transparent 60%);
+  background-attachment: fixed;
+  color: #f3f4f6;
+  direction: rtl;
+  min-height: 100vh;
+}
+
+/* --- מעטפת ראשית (App) עם מסגרת אנימציה זזה גדולה --- */
+.app {
+  position: relative;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #080810;
+  border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  animation: fadeIn 0.8s ease-out;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 34px;
+  background: linear-gradient(60deg, #db2777, #06b6d4, #ffffff, #9333ea, #db2777);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: glowingBorderMove 6s linear infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowingBorderMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- סרגל הניווט (Header) ומסגרת אנימציה זזה --- */
+header {
+  position: relative;
+  background: #0d0d18 !important;
+  border-radius: 24px !important;
+  border: 3px solid transparent !important;
+  background-clip: padding-box !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 30px;
+  padding: 22px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  z-index: 10;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 27px;
+  background: linear-gradient(120deg, #db2777, #06b6d4, #ffffff, #9333ea, #db2777);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: glowingBorderMove 5s ease infinite;
+}
+
+.brand {
+  color: #ffffff;
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+  letter-spacing: 0.5px;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: #131322 !important;
+  border: 1px solid rgba(6, 182, 212, 0.4) !important;
+  color: #f3f4f6 !important;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav button:hover {
+  background: linear-gradient(135deg, #db2777 0%, #06b6d4 100%) !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(219, 39, 119, 0.8) !important;
+}
+
+/* --- עמודים ראשיים (Sections) ומסגרת אנימציה זזה --- */
+.page-section {
+  position: relative;
+  background: #0d0d18 !important;
+  border-radius: 24px !important;
+  border: 3px solid transparent !important;
+  background-clip: padding-box !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 30px;
+  padding: 35px;
+  animation: slideUp 0.5s ease;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.page-section::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 27px;
+  background: linear-gradient(120deg, #db2777, #06b6d4, #ffffff, #9333ea, #db2777);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: glowingBorderMove 5s ease infinite;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-section h2 {
+  color: #06b6d4;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+  border-bottom: 2px solid rgba(219, 39, 119, 0.4);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+/* --- קופסאות הסבר ותיבות תוכן פנימיות --- */
+.about-box {
+  background: #131322 !important;
+  border: 2px dashed rgba(6, 182, 212, 0.4) !important;
+  padding: 20px 25px;
+  border-radius: 18px;
+  color: #cffafe;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* --- שדות קלט (אינפוטים, סלקט, טקסטאריה) --- */
+input, select, textarea {
+  width: 100%;
+  padding: 14px 18px;
+  margin: 10px 0 20px 0;
+  border: 1.5px solid rgba(147, 51, 234, 0.4);
+  border-radius: 14px;
+  font-family: 'Assistant', sans-serif;
+  font-size: 1rem;
+  background: #05050a;
+  color: #ffffff;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #06b6d4;
+  background: #0d0d18;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+/* --- כפתורים כלליים --- */
+button {
+  cursor: pointer;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* כפתורי פעולה מרכזיים בתוך העמודים */
+.page-section button:not(nav button) {
+  background: linear-gradient(135deg, #db2777 0%, #9333ea 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(219, 39, 119, 0.4);
+}
+
+.page-section button:not(nav button):hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.9);
+  filter: brightness(1.2);
+}
+
+/* --- כרטיסיות פנימיות וריבועים --- */
+.card, .feedback-card, .exercise-box {
+  background: #131322 !important;
+  border-radius: 18px !important;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  color: #f3f4f6 !important;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover, .exercise-box:hover, .feedback-card:hover {
+  transform: translateY(-5px);
+  border-color: #db2777;
+}
