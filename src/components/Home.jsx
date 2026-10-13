@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 
+
+function isValidUsername(username) {
+  if (!username || typeof username !== 'string') {
+    return false;
+  }
+
+  const length = username.trim().length;
+  return length >= 3 && length <= 15;
+}
+
 export function Home({ onLoginAttempt, onGoToRegister }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [usernameInput, setUsernameInput] = useState('');
@@ -7,6 +17,11 @@ export function Home({ onLoginAttempt, onGoToRegister }) {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    if (!isValidUsername(usernameInput)) {
+      alert('שם המשתמש חייב להכיל בין 3 ל-15 תווים');
+      return;
+    }
+
     onLoginAttempt(usernameInput, passwordInput);
   };
 
